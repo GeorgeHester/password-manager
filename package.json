@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node build/index.js",
+    "build": "tsc --project tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,13 @@
   ],
   "license": "mpl-2.0",
   "dependencies": {
-    "express": "^4.17.2"
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "express-rate-limit": "^6.2.0",
+    "joi": "^17.5.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.12",
     "tslint": "^6.1.3",
