@@ -3,6 +3,12 @@
 */
 import express from 'express';
 import accountRoutes from './routes/account';
+import logger from './modules/logger';
+
+import * as encryptionHandler from './modules/encryption-handler';
+let x: encryptionHandler.Password = encryptionHandler.hashPassword('TestingPassword');
+console.log(x.password, x.salt);
+
 
 /*
     Generate express app
@@ -19,5 +25,5 @@ app.use('/api/v1/account', accountRoutes);
 */
 app.listen(8000, () =>
 {
-    console.log('Listening');
+    logger.log(logger.LogType.info, 'Server Listening');
 });

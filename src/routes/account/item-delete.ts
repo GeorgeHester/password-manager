@@ -5,7 +5,7 @@
 /*
     Function to handle request
 */
-async function request(request: object, response: object): Promise<void>
+async function request(request: any, response: any): Promise<void>
 {
 
 };
