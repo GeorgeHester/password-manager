@@ -1,0 +1,9 @@
+CREATE
+OR REPLACE FUNCTION get_accounts(UUID) RETURNS
+SETOF accounts LANGUAGE plpgsql AS $$
+BEGIN
+SELECT *
+FROM accounts
+WHERE id = $1;
+END;
+$$;

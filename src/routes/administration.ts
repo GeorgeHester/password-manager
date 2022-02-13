@@ -8,21 +8,21 @@ import rateLimiter from '../middlewares/rate-limiter';
 /*
     Imported endpoint(s)
 */
-import endpointKeysCreate from './authentication/keys-create';
+import endpointUserCreate from './administration/user-create';
 
 /*
     Imported requestValidator(s)
 */
-import endpointKeysCreateValidator from '../validators/authentication/keys-create';
+import endpointUserCreateValidator from '../validators/administration/user-create';
 
 /*
     Endpoints
 */
 router.post(
-    '/keys/create',
+    '/user/create',
     rateLimiter(1, 1),
-    endpointKeysCreateValidator,
-    endpointKeysCreate
+    endpointUserCreateValidator,
+    endpointUserCreate
 );
 
 /*

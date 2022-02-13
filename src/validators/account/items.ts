@@ -6,13 +6,13 @@ import joi, { ValidationResult } from 'joi';
 /*
     Function to validate request with schema
 */
-function validate(request: any, response: any, next: any)
+function validate(request: any, response: any, next: any): void
 {
     /*
         Specific
     */
     let validBody = joi.object({
-
+        
     });
 
     let validHeaders = joi.object({
@@ -40,11 +40,12 @@ function validate(request: any, response: any, next: any)
 
         response.status(400).send({
             type: "error",
-            data: {
-                detail: errorMessage
-            }
+            detail: errorMessage
         });
+        return;
     };
+
+    next();
 };
 
 /*

@@ -12,7 +12,10 @@ function validate(request: any, response: any, next: any): void
         Specific
     */
     let validBody = joi.object({
-        
+        email: joi.string().required(),
+        password: joi.string().required(),
+        firstName: joi.string().required(),
+        lastName: joi.string().required()
     });
 
     let validHeaders = joi.object({

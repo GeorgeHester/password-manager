@@ -12,6 +12,7 @@ import endpointItems from './account/items';
 import endpointItemCreate from './account/item-create';
 import endpointItemDelete from './account/item-delete';
 import endpointItemUpdate from './account/item-update';
+import endpointAccountCreate from './account/account-create';
 
 /*
     Imported requestValidator(s)
@@ -20,10 +21,18 @@ import endpointItemsValidator from '../validators/account/items';
 import endpointItemCreateValidator from '../validators/account/item-create';
 import endpointItemDeleteValidator from '../validators/account/item-delete';
 import endpointItemUpdateValidator from '../validators/account/item-update';
+import endpointAccountCreateValidator from '../validators/account/account-create';
 
 /*
     Endpoints
 */
+router.post(
+    '/account/create',
+    rateLimiter(1, 1),
+    endpointAccountCreateValidator,
+    endpointAccountCreate
+);
+
 router.get(
     '/items',
     rateLimiter(1, 1),
